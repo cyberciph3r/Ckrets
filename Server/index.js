@@ -14,7 +14,7 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-mongoose.connect(import.meta.VITE_MONGODB_CONNECTION_URL);
+mongoose.connect(process.env.REACT_APP_MONGODB_CONNECTION_URL);
 
 const secretSchema = new mongoose.Schema({
   secretBody: String,
