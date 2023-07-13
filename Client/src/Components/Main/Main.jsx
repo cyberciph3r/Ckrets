@@ -28,7 +28,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchSecrets = async () => {
-      const response = await fetch("http://localhost:2002/find");
+      const response = await fetch("https://ckrets.onrender.com/find");
       const data = await response.json();
       setResults(data);
     };

@@ -33,7 +33,7 @@ app.post("/", (req, res) => {
     secretTag: req.body.tag,
   });
   secret.save();
-  res.redirect("http://localhost:5173/main");
+  res.redirect("https://ckrets.netlify.app/main");
 });
 
 app.get("/find", async (req, res) => {

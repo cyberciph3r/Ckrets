@@ -29,7 +29,7 @@ const Create = () => {
           </Typography>
           <form
             className={classes.form}
-            action="http://localhost:2002/"
+            action="https://ckrets.onrender.com/"
             method="POST"
           >
             <label>Your Secret</label>
