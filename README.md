@@ -1,6 +1,6 @@
 # Ckrets
 
-- A captivating full-stack (MERN) web application designed to provide individuals with a platform to anonymously share their deepest secrets ensuring utmost privacy and freedom of expression.
+- A captivating full-stack (MERN) web application designed to provide users with a platform to anonymously share their deepest secrets ensuring utmost privacy and freedom of expression.
 - Utilized MongoDB to securely store and manage user posts.
 - Developed a visually appealing and user-friendly frontend using React, enhanced with the Material-UI library, for a modern and polished UI design.
 - The upcoming reactions feature will enable users to engage with others' posts.
