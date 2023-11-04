@@ -174,6 +174,9 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "0.7rem",
     },
   },
+  loader: {
+    padding: "4rem",
+  },
   reactionsContainer: {
     margin: "1rem",
     // backgroundColor: "rgba(255, 255, 255, 0.2)",

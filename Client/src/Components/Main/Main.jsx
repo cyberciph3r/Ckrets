@@ -6,6 +6,7 @@ import {
   CardActions,
   CardContent,
   Chip,
+  CircularProgress,
   Toolbar,
   Typography,
 } from "@material-ui/core";
@@ -22,6 +23,7 @@ import BackHome from "../BackHome/BackHome";
 
 const Main = () => {
   const classes = useStyles();
+  const [loader, setLoader] = useState(true);
   const [results, setResults] = useState([]);
   const [query, setQuery] = useState("");
   const { user, logout } = useStore();
@@ -30,6 +32,7 @@ const Main = () => {
     const fetchSecrets = async () => {
       const response = await fetch("https://ckrets.onrender.com/find");
       const data = await response.json();
+      setLoader(false);
       setResults(data);
     };
     fetchSecrets();
@@ -169,32 +172,49 @@ const Main = () => {
             />
           </div>
           <div className={classes.cardContainer}>
-            <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={2}>
-              {results
-                .filter((post) => {
-                  return post.secretTag.includes(query);
-                })
-                .map((singleSecret, index) => {
-                  return (
-                    <Card key={index} className={classes.card}>
-                      <CardContent>
-                        <Typography align="left" className={classes.secretbody}>
-                          {singleSecret.secretBody}
-                        </Typography>
-                        <Typography align="left" className={classes.tag}>
-                          {singleSecret.secretTag}
-                        </Typography>
-                      </CardContent>
-                      {/* <CardActions className={classes.reactionsContainer}>
+            {loader ? (
+              <div>
+                <CircularProgress
+                  color="black"
+                  size="4rem"
+                  className={classes.loader}
+                />
+                <Typography className={classes.secretbody}>
+                  Unearthing the finest secrets – our backend is stirring to
+                  life...
+                </Typography>
+              </div>
+            ) : (
+              <Masonry columns={{ xs: 1, sm: 2, md: 3, lg: 4 }} spacing={2}>
+                {results
+                  .filter((post) => {
+                    return post.secretTag.includes(query);
+                  })
+                  .map((singleSecret, index) => {
+                    return (
+                      <Card key={index} className={classes.card}>
+                        <CardContent>
+                          <Typography
+                            align="left"
+                            className={classes.secretbody}
+                          >
+                            {singleSecret.secretBody}
+                          </Typography>
+                          <Typography align="left" className={classes.tag}>
+                            {singleSecret.secretTag}
+                          </Typography>
+                        </CardContent>
+                        {/* <CardActions className={classes.reactionsContainer}>
                         <FavoriteBorderOutlined fontSize="small" />
                         <ThumbUpAltOutlined fontSize="small" />
                         <MoodOutlined fontSize="small" />
                         <SentimentDissatisfiedOutlined fontSize="small" />
                       </CardActions> */}
-                    </Card>
-                  );
-                })}
-            </Masonry>
+                      </Card>
+                    );
+                  })}
+              </Masonry>
+            )}
           </div>
         </div>
       )}
