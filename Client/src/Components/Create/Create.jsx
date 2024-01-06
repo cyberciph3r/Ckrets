@@ -29,7 +29,7 @@ const Create = () => {
           </Typography>
           <form
             className={classes.form}
-            action="https://ckrets.onrender.com/"
+            action={`${import.meta.env.VITE_GOOGLE_CLIENT_ID}`}
             method="POST"
           >
             <label>Your Secret</label>
