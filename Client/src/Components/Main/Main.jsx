@@ -30,9 +30,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchSecrets = async () => {
-      const response = await fetch(
-        `${import.meta.env.VITE_GOOGLE_CLIENT_ID}/find`
-      );
+      const response = await fetch("https://ckrets.vercel.app/find");
       const data = await response.json();
       setLoader(false);
       setResults(data);

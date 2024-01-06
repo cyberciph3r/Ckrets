@@ -29,7 +29,7 @@ const Create = () => {
           </Typography>
           <form
             className={classes.form}
-            action={`${import.meta.env.VITE_GOOGLE_CLIENT_ID}`}
+            action="https://ckrets.vercel.app"
             method="POST"
           >
             <label>Your Secret</label>
